@@ -2,7 +2,7 @@
 <div class="show-picture-wrapper">
   <%= image_tag(@picture.image.url, class: "show-picture-image") if @picture.image && @picture.image.url %>
   <div class="non-image-wrapper">
-    <div class="picture-header">
+    <div class="picture-profile-wrapper">
       <a href=<%= user_path(@picture.user.id)%>>
         <%= image_tag "dummy_user.jpg", class: "picture-user-image", alt: "user-img" %>
       </a>
@@ -14,10 +14,12 @@
     <div class="picture-content">
       <%= @picture.content %>
     </div>
-    <div class="btns-wrapper">
-      <%= link_to "Edit", edit_picture_path(@picture.id), class: "btn btn-secondary" %>
-      <%= link_to "Delete", picture_path(@picture.id), method: :delete, class: "btn btn-danger" %>
-    </div>
+    <% if @picture.user == current_user %>
+      <div class="picture-btns">
+        <%= link_to "Edit", edit_picture_path(@picture.id), class: "btn btn-secondary" %>
+        <%= link_to "Delete", picture_path(@picture.id), method: :delete, class: "btn btn-danger", data: {confirm: "本当に削除しますか?"} %>
+      </div>
+    <% end %>
     <div class="picture-footer">
       <div class="picture-favorites-count">
         <span><%= pluralize(2, "Like") %></span>

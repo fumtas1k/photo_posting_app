@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit update destroy]
+  before_action :ensure_user, only: %i[edit update destroy]
   def index
     @pictures = Picture.all.order(created_at: :desc)
   end
@@ -32,6 +33,20 @@ class PicturesController < ApplicationController
   def edit
   end
 
+  def update
+    if @picture.update(picture_params)
+      redirect_to picture_path(@picture.id), notice: "pictureを編集しました!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @picture.destroy
+    flash[:danger] = "pictureを削除しました!"
+    redirect_to pictures_path
+  end
+
   private
   def picture_params
     params.require(:picture).permit(:content, :image, :image_cache)
@@ -39,5 +54,9 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def ensure_user
+    redirect_to pictures_path unless @picture.user.id == current_user.id
   end
 end

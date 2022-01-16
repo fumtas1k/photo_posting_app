@@ -48,8 +48,8 @@
   overflow-wrap: break-word;
 }
 .picture-header {
-  padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
 }
 .picture-user-image {
   display: block;
@@ -95,4 +95,11 @@
 .non-image-wrapper {
   width: 30%;
   min-width: 300px;
+}
+.picture-profile-wrapper {
+  display: flex;
+  padding: 10px 20px;
+}
+.picture-btns {
+  padding: 10px 20px;
 }
