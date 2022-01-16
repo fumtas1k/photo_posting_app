@@ -1,3 +1,98 @@
-// Place all the styles related to the pictures controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.picture-form-wrapper, .start-picture-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgb(225, 224, 230);
+}
+.start-picture-form {
+  display: flex;
+  align-items: center;
+}
+.start-picture-form img {
+  width: 50px;
+}
+#show-picture-form {
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+.picture-form-user {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+.picture-form-user-image {
+  width: 50px;
+  height: auto;
+}
+.picture-user-name {
+  margin-left: 10px;
+  line-height: 50px;
+}
+
+.picture-wrapper a{
+  color: inherit;
+}
+.picture-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgb(225, 224, 230);
+}
+.picture-content {
+  overflow-wrap: break-word;
+}
+.picture-header {
+  padding: 10px 20px;
+  display: flex;
+}
+.picture-user-image {
+  display: block;
+  width: 50px;
+  height: auto;
+}
+.picture-profile {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.picture-content {
+  padding: 0 20px;
+}
+
+.picture-favorites-count {
+  margin: 0 10px;
+  padding: 10px;
+  border-top: 1px solid rgb(225, 224, 230);
+  border-bottom: 1px solid rgb(225, 224, 230);
+}
+.picture-favorite a{
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+    background-color:rgb(225, 224, 230);
+  }
+}
+.show-picture-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+.show-picture-image  {
+  width: 70%;
+  min-width: 326px;
+  height: auto;
+}
+.non-image-wrapper {
+  width: 30%;
+  min-width: 300px;
+}

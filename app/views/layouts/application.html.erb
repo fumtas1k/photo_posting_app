@@ -16,11 +16,11 @@
       <header>
         <nav class="nav">
           <div class="header-left">
-            <span><i class="fas fa-globe"></i></span>
+            <%= link_to(content_tag(:i, "", class:"fas fa-globe"), pictures_path) %>
           </div>
           <div class="header-center">
             <ul>
-              <li><a href="#"><i class="fas fa-home"></i></a></li>
+              <li><%= link_to(content_tag(:i, "", class: "fas fa-home"), pictures_path) %></li>
               <li><%= link_to(content_tag(:i, "", class: "fas fa-user-friends"), users_path) %></li>
               <li><a href="#"><i class="fas fa-play-circle"></i></a></li>
               <li><a href="#"><i class="fas fa-puzzle-piece"></i></a></li>
@@ -28,7 +28,7 @@
           </div>
           <div class="header-right">
             <ul>
-              <li><%= link_to get_user_name(current_user), user_path(current_user.id), class: "header-user-name" %></li>
+              <li><%= link_to current_user.first_name, user_path(current_user.id), class: "header-user-name" %></li>
               <li><a href="#"><i class="fas fa-th"></i></a></li>
               <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
               <li><a href="#"><i class="fas fa-bell"></i></a></li>
@@ -38,8 +38,8 @@
         </nav>
         <div id="mini-menu-wrapper">
           <div class="mini-menu-header">
-            <a href=<%= user_url(current_user.id) %> class="mini-menu-item">
-              <img src="#" class="mini-user-image" alt="userimg">
+            <a href=<%= user_path(current_user.id) %> class="mini-menu-item">
+              <%= image_tag "dummy_user.jpg", alt: "userimg", class: "mini-user-image" %>
               <span class="mini-user-name">
                 <%= get_user_name(current_user) %>
               </span>

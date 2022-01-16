@@ -13,8 +13,9 @@
         </ul>
       </div>
     <% end %>
-    <div class="picture-user-name">
-      <%= current_user.first_name %>
+    <div class="picture-form-user">
+      <%=image_tag "dummy_user.jpg", class: "picture-form-user-image", alt: "userimg"%>
+      <span class="picture-user-name"><%= current_user.first_name %></span>
     </div>
     <%= form.label :content, class: "sr-only" %>
     <%= form.text_area :content, class: "form-control" , placeholder: "What's on your mind, #{current_user.first_name}?" %>

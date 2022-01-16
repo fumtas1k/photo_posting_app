@@ -1,2 +1,32 @@
-<h1>Pictures#show</h1>
-<p>Find me in app/views/pictures/show.html.erb</p>
+<% provide(:title, "show") %>
+<div class="show-picture-wrapper">
+  <%= image_tag(@picture.image.url, class: "show-picture-image") if @picture.image && @picture.image.url %>
+  <div class="non-image-wrapper">
+    <div class="picture-header">
+      <a href=<%= user_path(@picture.user.id)%>>
+        <%= image_tag "dummy_user.jpg", class: "picture-user-image", alt: "user-img" %>
+      </a>
+      <div class="picture-profile">
+        <%= link_to get_user_name(@picture.user), user_path(@picture.user.id) %>
+        <%= link_to time_ago_in_words(@picture.created_at), picture_path(@picture.id) %>
+      </div>
+    </div>
+    <div class="picture-content">
+      <%= @picture.content %>
+    </div>
+    <div class="btns-wrapper">
+      <%= link_to "Edit", edit_picture_path(@picture.id), class: "btn btn-secondary" %>
+      <%= link_to "Delete", picture_path(@picture.id), method: :delete, class: "btn btn-danger" %>
+    </div>
+    <div class="picture-footer">
+      <div class="picture-favorites-count">
+        <span><%= pluralize(2, "Like") %></span>
+      </div>
+      <div class="picture-favorite">
+        <a href="#" >
+          <i class="far fa-thumbs-up"></i> Like
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

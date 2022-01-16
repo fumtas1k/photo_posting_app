@@ -1,0 +1,31 @@
+<div class="picture-wrapper">
+  <div class="picture-header">
+    <a href=<%= user_path(picture.user.id)%>>
+      <%= image_tag "dummy_user.jpg", class: "picture-user-image", alt: "user-img" %>
+    </a>
+    <div class="picture-profile">
+      <%= link_to get_user_name(picture.user), user_path(picture.user.id) %>
+      <%= link_to time_ago_in_words(picture.created_at), picture_path(picture.id) %>
+    </div>
+  </div>
+  <div class="picture-items">
+    <div class="picture-content">
+      <%= picture.content %>
+    </div>
+    <div class="picture-image">
+      <a href=<%= picture_path(picture.id) %>>
+        <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
+      </a>
+    </div>
+  </div>
+  <div class="picture-footer">
+    <div class="picture-favorites-count">
+      <span><%= pluralize(2, "Like") %></span>
+    </div>
+    <div class="picture-favorite">
+      <a href="#" >
+        <i class="far fa-thumbs-up"></i> Like
+      </a>
+    </div>
+  </div>
+</div>

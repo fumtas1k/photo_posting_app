@@ -2,6 +2,9 @@ body ul {
   padding: 0;
   margin: 0;
 }
+body a {
+  color: inherit;
+}
 header {
   height: 55px;
   width: 100%;
@@ -107,7 +110,7 @@ main {
 }
 .mini-user-image {
   width: 50px;
-  height: 50px;
+  height: auto;
 }
 .mini-menu-main a {
   display: inline-block;
