@@ -28,6 +28,7 @@
           </div>
           <div class="header-right">
             <ul>
+              <li><%= link_to get_user_name(current_user), user_path(current_user.id), class: "header-user-name" %></li>
               <li><a href="#"><i class="fas fa-th"></i></a></li>
               <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
               <li><a href="#"><i class="fas fa-bell"></i></a></li>
