@@ -11,7 +11,14 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
-    render :new if @picture.invalid?
+    flag = true
+    picture_params.values.each{|v| flag = false if v.present? }
+    if flag
+      flash.now[:danger] = "文章か画像を投稿して下さい!"
+      render :new
+    elsif @picture.invalid?
+      render :new
+    end
   end
 
   def create
