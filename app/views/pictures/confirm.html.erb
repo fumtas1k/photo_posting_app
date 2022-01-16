@@ -1,2 +1,21 @@
-<h1>Pictures#confirm</h1>
-<p>Find me in app/views/pictures/confirm.html.erb</p>
+<% provide(:title, "confirm post") %>
+<div class="picture-form-wrapper">
+  <div class="picture-form-header">
+    <h2 class="mb-3 font-weight-normal">Confirm post</h2>
+  </div>
+  <%= form_with(model: @picture, local: true, class: "picture-form") do |form| %>
+    <div class="@picture-user-name">
+      <%= current_user.first_name %>
+    </div>
+    <%= form.label :content, class: "sr-only" %>
+    <%= form.text_area :content, class: "form-control" , placeholder: "What's on your mind, #{current_user.first_name}?", readonly: true %>
+    <div class="mb-3">
+      <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+      <%= form.label :image, class: "sr-only" %>
+      <%= form.hidden_field :image, class: "form-control", id: "formFile" %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    <%= form.submit "Post", class: "btn btn-lg btn-primary btn-block" %>
+    <%= form.submit "Back", class: "btn btn-lg btn-secondary btn-block", name: "back" %>
+  <% end %>
+</div>
