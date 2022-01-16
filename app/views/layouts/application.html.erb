@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title><%= yeild(:title) %></title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +19,15 @@
         </div>
         <div class="header-center">
           <ul>
-            <li><span><i class="fas fa-home"></i></span></li>
-            <li><span><i class="fas fa-user-friends"></i></span></li>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+            <li><a href="#"><i class="fas fa-user-friends"></i></a></li>
             <li><span><i class="fas fa-play-circle"></i></span></li>
             <li><span><i class="fas fa-puzzle-piece"></i></span></li>
           </ul>
         </div>
         <div class="header-right">
           <ul>
-            <li><span><i class="fas fa-th"></i></span></li>
+            <li><a href="#"><i class="fas fa-th"></i></a></li>
             <li><span><i class="fas fa-comment-dots"></i></span></li>
             <li><span><i class="fas fa-bell"></i></span></li>
             <li><span><i class="fas fa-caret-square-down"></i></span></li>

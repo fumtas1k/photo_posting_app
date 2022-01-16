@@ -1,0 +1,23 @@
+.user-form-wrapper {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px #c5c5c5;
+  padding:20px;
+}
+.user-form-header {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #c5c5c5;
+}
+
+.user-name {
+  display: flex;
+  justify-content: space-between;
+  .form-control {
+    width: calc((400px - 55px) / 2);
+  }
+}
+.form-control {
+  margin-bottom: 10px;
+}

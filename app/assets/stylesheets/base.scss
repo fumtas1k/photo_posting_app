@@ -1,18 +1,19 @@
-body {
-  background-color: rgba(236, 236, 236, 0.6);
-}
 header {
-  height: 50px;
+  height: 55px;
   width: 100%;
   position: fixed;
   top: 0;
-  box-shadow: 1px 0 5px rgb(236, 236, 236);
+  background-color: #fff;
+  box-shadow: 1px 0 5px rgb(225, 224, 230);
+  padding: 0 20px;
+}
+.nav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.nav {
-  width: 100px;
+  font-size: 28px;
+  text-align: center;
 }
 .nav ul {
   margin: 0;
@@ -23,12 +24,12 @@ header {
 .header-right ul {
   justify-content: end;
 }
-
 .nav li {
   list-style: none;
 }
-.header a {
+header a {
   color: inherit;
+  display:inline-block;
   line-height: 50px;
   &:hover {
     color: inherit;
@@ -44,25 +45,29 @@ header {
 .header-right {
   max-width: 250px;
 }
+.header-left i {
+  color: rgb(20, 118, 247);
+}
 .header-center a {
-  display: inline-block;
-  width: 111px;
+  width: 100px;
   border-radius: 15px;
-  &hover {
-    background-color: rgba(236, 236, 236,0.6);
+  &:hover {
+    background-color: rgba(225, 224, 230, 0.8);
   }
 }
 .header-right a {
-  display: inline-block;
   width: 40px;
+  font-size: 20px;
   border-radius: 40px;
-  background-color: rgba(236, 236, 236, 0.6);
-  &hover {
-    background-color: rgb(236, 236, 236);
+  background-color: rgba(225, 224, 230, 0.6);
+  &:hover {
+    background-color: rgb(225, 224, 230);
   }
 }
-
-
 .row {
-  padding-top: 50px;
+  padding-top: 61px;
+  background-color: rgba(225, 224, 230,0.6);
+}
+main {
+  width: 100%;
 }

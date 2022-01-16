@@ -1,0 +1,23 @@
+<% provide(:title, "signup") %>
+
+<div class="user-form-wrapper" id="signup-form-wrapper">
+  <div class="user-form-header">
+    <h2 class="mb-3 font-weight-normal">Sign Up</h1>
+    <small>It's quick and easy.</small>
+  </div>
+  <%= form_with(model: @user, local: true, class: "signin-form") do |form| %>
+    <div class="user-name">
+      <%= form.label :first_name, class: "sr-only" %>
+      <%= form.text_field :first_name, class: "form-control" , placeholder: "First name", required: true, autofocus: true %>
+      <%= form.label :last_name, class: "sr-only" %>
+      <%= form.text_field :last_name, class: "form-control" , placeholder: "Last name", required: true %>
+    </div>
+    <%= form.label :email, class: "sr-only" %>
+    <%= form.email_field :email, class: "form-control" , placeholder: "Email", required: true %>
+    <%= form.label :password, class: "sr-only" %>
+    <%= form.password_field :password, class: "form-control" , placeholder: "New password", required: true %>
+    <%= form.label :password_confirmation, class: "sr-only" %>
+    <%= form.password_field :password_confirmation, class: "form-control" , placeholder: "Confirm password", required: true %>
+    <%= form.submit "Sign Up", class: "btn btn-lg btn-success btn-block" %>
+  <% end %>
+</div>
