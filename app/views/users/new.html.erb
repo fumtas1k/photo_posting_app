@@ -6,7 +6,7 @@
     <small>It's quick and easy.</small>
   </div>
   <%= form_with(model: @user, local: true, class: "signin-form") do |form| %>
-    <div class="user-name">
+    <div class="form-user-name">
       <%= form.label :first_name, class: "sr-only" %>
       <%= form.text_field :first_name, class: "form-control" , placeholder: "First name", required: true, autofocus: true %>
       <%= form.label :last_name, class: "sr-only" %>

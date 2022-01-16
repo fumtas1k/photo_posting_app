@@ -1,8 +1,19 @@
 <% provide(:title, "friends") %>
 <h1>知り合いかも</h1>
 
-<div class="users-index-wrapper">
-  <%= %>
+<div class="users-wrapper">
+  <% @users.each do |user| %>
+    <div class="user">
+      <div class="user-item">
+        <img src="#" class="user-image" alt="user-image">
+        <div class="user-name"><%= "#{user.first_name} #{user.last_name}" %></div>
+      </div>
+      <div class="user-btns">
+        <button type="button" class="btn btn-primary">友達を追加</button>
+        <button type="button" class="btn btn-secondary">削除</button>
+      </div>
 
+    </div>
+  <% end %>
 
 </div>

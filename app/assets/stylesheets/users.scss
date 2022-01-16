@@ -10,8 +10,7 @@
   margin-bottom: 10px;
   border-bottom: 1px solid #c5c5c5;
 }
-
-.user-name {
+.form-user-name {
   display: flex;
   justify-content: space-between;
   .form-control {
@@ -20,4 +19,38 @@
 }
 .form-control {
   margin-bottom: 10px;
+}
+
+.profile-wrapper {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.users-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user {
+  width: 240px;
+  height: 380px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgb(225, 224, 230);
+}
+.user-image {
+  display: block;
+  width: auto;
+  height: 240px;
+  border: 1px solid #000;
+}
+.user-name {
+  height: 35px;
+}
+.user-btns {
+  display:flex;
+  flex-direction: column;
+  height:90px;
+  justify-content: space-around;
 }
