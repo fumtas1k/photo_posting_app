@@ -27,7 +27,7 @@ header {
 .nav li {
   list-style: none;
 }
-header a {
+header a, header span {
   color: inherit;
   display:inline-block;
   line-height: 55px;
@@ -50,7 +50,7 @@ header a {
 .header-right li {
   margin-left: 5px;
 }
-.header-right a {
+.header-right a, .header-right span{
   width: 55px;
   font-size: 20px;
   border-radius: 55px;
@@ -67,7 +67,7 @@ header a {
 main {
   width: 100%;
 }
-.mini-menu-wrapper {
+#mini-menu-wrapper {
   position: absolute;
   top: 55px;
   right: 20px;
