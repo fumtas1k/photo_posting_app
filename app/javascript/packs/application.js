@@ -10,4 +10,29 @@ $(document).on('turbolinks:load', function() {
   $("#mini-menu-btn").on("click", function(){
     $("#mini-menu-wrapper").slideToggle(50);
   });
- });
+
+  let flag = false;
+    $(".form-picture-input").each(function(e){
+      if ($(".form-picture-input").eq(e).val() != "") {
+        flag = true;
+      }
+    });
+    if (flag) {
+      $("#form-picture-btn").prop("disabled", false);
+    } else {
+      $("#form-picture-btn").prop("disabled", true);
+    }
+  $(".form-picture-input").on("change", function(){
+    flag = false;
+    $(".form-picture-input").each(function(e){
+      if ($(".form-picture-input").eq(e).val() != "") {
+        flag = true;
+      }
+    });
+    if (flag) {
+      $("#form-picture-btn").prop("disabled", false);
+    } else {
+      $("#form-picture-btn").prop("disabled", true);
+    }
+  });
+});

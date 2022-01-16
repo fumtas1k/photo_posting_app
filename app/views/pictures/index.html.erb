@@ -3,7 +3,9 @@
   <a href=<%= user_path(current_user.id) %>>
     <%= image_tag "dummy_user.jpg" %>
   </a>
-  <input type="text" placeholder="What's on your mind?" class="form-control" id="show-picture-form" readonly="true">
+  <a href=<%= new_picture_path %> class="show-picture-form" >
+    <input type="text" placeholder="What's on your mind?(New Post)" class="form-control" readonly="true">
+  </a>
 </div>
 <% @pictures.each do |picture| %>
   <%= render partial: picture %>

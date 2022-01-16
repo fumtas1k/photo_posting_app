@@ -14,9 +14,21 @@
 .start-picture-form img {
   width: 50px;
 }
-#show-picture-form {
+.show-picture-form {
+  width: 100%;
+  padding: 0 10px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.show-picture-form input{
   margin: 0 10px;
   border-radius: 20px;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 1px 2px 5px rgb(225, 224, 230);
+  }
 }
 
 .picture-form-user {

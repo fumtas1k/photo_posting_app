@@ -18,13 +18,13 @@
       <span class="picture-user-name"><%= current_user.first_name %></span>
     </div>
     <%= form.label :content, class: "sr-only" %>
-    <%= form.text_area :content, class: "form-control" , placeholder: "What's on your mind, #{current_user.first_name}?" %>
+    <%= form.text_area :content, class: "form-control form-picture-input" , placeholder: "What's on your mind, #{current_user.first_name}?", autofocus: true %>
     <div class="mb-3">
       <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
       <%= form.label :image, class: "sr-only" %>
-      <%= form.file_field :image, class: "form-control", id: "formFile" %>
+      <%= form.file_field :image, class: "form-control form-picture-input" %>
       <%= form.hidden_field :image_cache %>
     </div>
-    <%= form.submit "Post", class: "btn btn-lg btn-primary btn-block" %>
+    <%= form.submit "Post", class: "btn btn-lg btn-primary btn-block", id: "form-picture-btn" %>
   <% end %>
 </div>
