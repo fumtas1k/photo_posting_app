@@ -12,45 +12,51 @@
   </head>
 
   <body>
-    <header>
-      <nav class="nav">
-        <div class="header-left">
-          <span><i class="fas fa-globe"></i></span>
-        </div>
-        <div class="header-center">
-          <ul>
-            <li><a href="#"><i class="fas fa-home"></i></a></li>
-            <li><%= link_to(content_tag(:i, "", class: "fas fa-user-friends"), users_path) %></li>
-            <li><a href="#"><i class="fas fa-play-circle"></i></a></li>
-            <li><a href="#"><i class="fas fa-puzzle-piece"></i></a></li>
-          </ul>
-        </div>
-        <div class="header-right">
-          <ul>
-            <li><a href="#"><i class="fas fa-th"></i></a></li>
-            <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
-            <li><a href="#"><i class="fas fa-bell"></i></a></li>
-            <li><span><i class="fas fa-caret-square-down" id="mini-menu-btn"></i></span></li>
-          </ul>
-        </div>
-      </nav>
-      <div id="mini-menu-wrapper">
-        <div class="mini-menu-header">
-          <div class="mini-user">
-            <img src="#" class="mini-user-image" alt="user-image">
-            <div class="mini-user-name">
-              仮
-            </div>
+    <% if current_user %>
+      <header>
+        <nav class="nav">
+          <div class="header-left">
+            <span><i class="fas fa-globe"></i></span>
+          </div>
+          <div class="header-center">
+            <ul>
+              <li><a href="#"><i class="fas fa-home"></i></a></li>
+              <li><%= link_to(content_tag(:i, "", class: "fas fa-user-friends"), users_path) %></li>
+              <li><a href="#"><i class="fas fa-play-circle"></i></a></li>
+              <li><a href="#"><i class="fas fa-puzzle-piece"></i></a></li>
+            </ul>
+          </div>
+          <div class="header-right">
+            <ul>
+              <li><a href="#"><i class="fas fa-th"></i></a></li>
+              <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
+              <li><a href="#"><i class="fas fa-bell"></i></a></li>
+              <li><span id="mini-menu-btn"><i class="fas fa-caret-square-down" ></i></span></li>
+            </ul>
+          </div>
+        </nav>
+        <div id="mini-menu-wrapper">
+          <div class="mini-menu-header">
+            <a href=<%= user_url(current_user.id) %> class="mini-menu-item">
+              <img src="#" class="mini-user-image" alt="userimg">
+              <span class="mini-user-name">
+                <%= get_user_name(current_user) %>
+              </span>
+            </a>
+          </div>
+          <div class="mini-menu-main">
+            <ul>
+              <li>
+                <%= link_to(content_tag(:i, '', class: 'fas fa-sign-out-alt') + " Log out", session_path(current_user.id), method: :delete, class: "mini-menu-item") %>
+              </li>
+            </ul>
+          </div>
+          <div class="mini-menu-footer">
+            プライバシー・利用規約・広告・Ad Choices・Cookie・その他・FUMTA &copy; 2022
           </div>
         </div>
-        <div class="mini-menu-main">
-          <a href="#" class=""><i class="fas fa-sign-out-alt"></i> ログアウト</a>
-        </div>
-        <div class="mini-menu-footer">
-          プライバシー・利用規約・広告・Ad Choices・Cookie・その他・FUMTA &copy; 2022
-        </div>
-      </div>
-    </header>
+      </header>
+    <% end %>
     <div class="rows">
       <% flash.each do |key, value| %>
         <% alert = key == "danger" ? "danger" : "success" %>

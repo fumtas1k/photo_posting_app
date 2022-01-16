@@ -1,0 +1,19 @@
+<% provide(:title, "Log In") %>
+<div class="login-page-wrapper">
+  <div class="login-title-wrapper">
+    <h1>photoposting</h1>
+    <p>Connect with friends and the world around you no Facebook.</p>
+  </div>
+  <div class="user-form-wrapper">
+    <%= form_with(scope: :session, url: sessions_path, local: true, class: "signin-form") do |form| %>
+      <%= form.label :email, class: "sr-only" %>
+      <%= form.email_field :email, class: "form-control" , placeholder: "Email", required: true %>
+      <%= form.label :password, class: "sr-only" %>
+      <%= form.password_field :password, class: "form-control" , placeholder: "New password", required: true %>
+      <%= form.submit "Log In", class: "btn btn-lg btn-primary btn-block" %>
+      <div class="login-btn-wrapper">
+        <%= link_to "Create new acount", new_user_path, class: "btn btn-success btn-block"%>
+      </div>
+    <% end %>
+  </div>
+</div>

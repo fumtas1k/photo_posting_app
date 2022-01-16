@@ -1,3 +1,7 @@
+body ul {
+  padding: 0;
+  margin: 0;
+}
 header {
   height: 55px;
   width: 100%;
@@ -16,7 +20,6 @@ header {
   text-align: center;
 }
 .nav ul {
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,19 +71,20 @@ main {
   padding-top: 56px;
   background-color: rgba(225, 224, 230,0.5);
 }
-.main-content {
-  width: 100%;
-}
 #mini-menu-wrapper {
   position: absolute;
   top: 55px;
   right: 20px;
   width: 360px;
-  z-index: 1;
+  z-index: 100;
   padding: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 1px 5px 10px rgb(225, 224, 230);
+}
+#mini-menu-wrapper li {
+  width: 100%;
+  list-style: none;
 }
 .mini-menu-header {
   width: 100%;
@@ -88,7 +92,7 @@ main {
   margin-bottom: 10px;
   border-bottom: 1px solid rgb(225, 224, 230);
 }
-.mini-user {
+.mini-menu-item {
   width: 100%;
   border-radius: 10px;
   display: flex;
@@ -100,6 +104,9 @@ main {
   width: 50px;
   height: 50px;
 }
+.mini-menu-main a {
+  display: inline-block;
+}
 .mini-menu-main i {
   display: inline-block;
   text-align: center;
@@ -109,6 +116,7 @@ main {
   border-radius: 30px;
   background-color: rgb(225, 224, 230);
 }
+
 .mini-menu-footer {
   color:rgb(184, 184, 184);
   font-size: 12px;
