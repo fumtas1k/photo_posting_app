@@ -51,7 +51,11 @@
         </div>
       </div>
     </header>
-    <div class="row">
+    <div class="rows">
+      <% flash.each do |key, value| %>
+        <% alert = key == "danger" ? "danger" : "success" %>
+        <%= content_tag :div, value, class: "alert alert-#{alert} top-alert" %>
+      <% end %>
       <aside></aside>
       <main>
         <div class="container">
