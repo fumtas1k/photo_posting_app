@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>PhotoPostingApp</title>
+    <title><%= yeild(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="nav">
+        <div class="header-left">
+          <span><i class="fas fa-globe"></i></span>
+        </div>
+        <div class="header-center">
+          <ul>
+            <li><span><i class="fas fa-home"></i></span></li>
+            <li><span><i class="fas fa-user-friends"></i></span></li>
+            <li><span><i class="fas fa-play-circle"></i></span></li>
+            <li><span><i class="fas fa-puzzle-piece"></i></span></li>
+          </ul>
+        </div>
+        <div class="header-right">
+          <ul>
+            <li><span><i class="fas fa-th"></i></span></li>
+            <li><span><i class="fas fa-comment-dots"></i></span></li>
+            <li><span><i class="fas fa-bell"></i></span></li>
+            <li><span><i class="fas fa-caret-square-down"></i></span></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="row">
+      <aside></aside>
+      <main>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </main>
+      <aside></aside>
+    </div>
   </body>
 </html>
