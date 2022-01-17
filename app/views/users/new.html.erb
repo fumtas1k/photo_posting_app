@@ -29,5 +29,7 @@
     <%= form.label :password_confirmation, class: "sr-only" %>
     <%= form.password_field :password_confirmation, class: "form-control" , placeholder: "Confirm password", required: true %>
     <%= form.submit "Sign Up", class: "btn btn-lg btn-success btn-block" %>
+    <%= link_to "Back", :back, class: "btn btn-info btn-lg btn-block" %>
+
   <% end %>
 </div>

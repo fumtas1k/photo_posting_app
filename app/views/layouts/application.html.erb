@@ -70,30 +70,34 @@
         <% alert = key == "danger" ? "danger" : "success" %>
         <%= content_tag :div, value, class: "alert alert-#{alert} top-alert" %>
       <% end %>
-      <div class="row">
-        <aside class="left-aside col-lg-3">
-          <ul class="left-aside-list">
-            <li class="left-aside-item">
-              <a href=<%= user_path(current_user.id) %> class="mini-menu-item">
-                <%= image_tag "dummy_user.jpg", alt: "userimg", class: "mini-user-image" %>
-                <span class="mini-user-name">
-                  <%= get_user_name(current_user) %>
-                </span>
-              </a>
-            </li>
-            <li class="left-aside-item">
-              <%= link_to(content_tag(:i, "", class: "fas fa-user-friends") + " Friends", users_path, class: "mini-menu-item") %>
-            </li>
-          </ul>
-        </aside>
-        <main class="col-lg-6 col-md-7">
+      <% if current_user %>
+        <div class="row">
+          <aside class="left-aside col-lg-3">
+            <ul class="left-aside-list">
+              <li class="left-aside-item">
+                <a href=<%= user_path(current_user.id) %> class="mini-menu-item">
+                  <%= image_tag "dummy_user.jpg", alt: "userimg", class: "mini-user-image" %>
+                  <span class="mini-user-name">
+                    <%= get_user_name(current_user) %>
+                  </span>
+                </a>
+              </li>
+              <li class="left-aside-item">
+                <%= link_to(content_tag(:i, "", class: "fas fa-user-friends") + " Friends", users_path, class: "mini-menu-item") %>
+              </li>
+            </ul>
+          </aside>
+          <main class="col-lg-6 col-md-7">
+        <% end %>
           <div class="container">
             <%= yield %>
           </div>
-        </main>
-        <aside class="right-aside col-lg-3 col-md-4">
-          <div class="right-aside-item">広告募集中</div>
-        </aside>
+        <% if current_user %>
+          </main>
+          <aside class="right-aside col-lg-3 col-md-4">
+            <div class="right-aside-item">広告募集中</div>
+          </aside>
+        <% end %>
       </div>
     </div>
   </body>
