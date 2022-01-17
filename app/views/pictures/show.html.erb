@@ -22,12 +22,16 @@
     <% end %>
     <div class="picture-footer">
       <div class="picture-favorites-count">
-        <span><%= pluralize(2, "Like") %></span>
+        <span><%= pluralize(@picture.favorites.count, "Like") %></span>
       </div>
       <div class="picture-favorite">
-        <a href="#" >
-          <i class="far fa-thumbs-up"></i> Like
-        </a>
+        <% if @picture.user.id != current_user.id %>
+          <% if @favorite %>
+            <%= link_to(content_tag(:i, "", class: "fas fa-thumbs-up fa-blue") + " Like", favorite_path(@favorite.id), method: :delete) %>
+          <% else %>
+            <%= link_to(content_tag(:i, "", class: "far fa-thumbs-up") + " Like", favorites_path(picture_id: @picture.id), method: :post) %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
