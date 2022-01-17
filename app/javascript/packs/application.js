@@ -35,4 +35,15 @@ $(document).on('turbolinks:load', function() {
       $("#form-picture-btn").prop("disabled", true);
     }
   });
+
+  if (["/pictures", "/"].indexOf(location.pathname) !== -1) {
+    $(".fa-home").addClass("fa-blue");
+  } else {
+    $(".fa-home").removeClass("fa-blue");
+  }
+  if (location.pathname === "/users") {
+    $(".fa-user-friends").addClass("fa-blue");
+  } else {
+    $(".fa-user-friends").removeClass("fa-blue");
+  }
 });

@@ -7,6 +7,4 @@
     <input type="text" placeholder="What's on your mind?(New Post)" class="form-control" readonly="true">
   </a>
 </div>
-<% @pictures.each do |picture| %>
-  <%= render partial: picture %>
-<% end %>
+<%= render partial: @pictures %>

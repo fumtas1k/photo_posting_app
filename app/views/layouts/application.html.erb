@@ -16,22 +16,26 @@
       <header>
         <nav class="nav">
           <div class="header-left">
-            <%= link_to(content_tag(:i, "", class:"fas fa-globe"), pictures_path) %>
+            <%= link_to(content_tag(:i, "", class:"fas fa-globe fa-blue"), root_path) %>
           </div>
           <div class="header-center">
             <ul>
               <li><%= link_to(content_tag(:i, "", class: "fas fa-home"), pictures_path) %></li>
               <li><%= link_to(content_tag(:i, "", class: "fas fa-user-friends"), users_path) %></li>
-              <li><a href="#"><i class="fas fa-play-circle"></i></a></li>
-              <li><a href="#"><i class="fas fa-puzzle-piece"></i></a></li>
             </ul>
           </div>
           <div class="header-right">
             <ul>
-              <li><%= link_to current_user.first_name, user_path(current_user.id), class: "header-user-name" %></li>
-              <li><a href="#"><i class="fas fa-th"></i></a></li>
-              <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
-              <li><a href="#"><i class="fas fa-bell"></i></a></li>
+              <li>
+                <%= link_to current_user.first_name, user_path(current_user.id), class: "header-user-name" %>
+              </li>
+              <li><a href="#">
+                <% if flash[:notice] || flash[:danger] %>
+                  <i class="far fa-bell fa-blue"></i>
+                <% else %>
+                  <i class="fas fa-bell"></i>
+                <% end %>
+              </a></li>
               <li><span id="mini-menu-btn"><i class="fas fa-caret-square-down" ></i></span></li>
             </ul>
           </div>
@@ -48,6 +52,9 @@
           <div class="mini-menu-main">
             <ul>
               <li>
+                <%= link_to(content_tag(:i, '', class: 'fas fa-image') + " create post", new_picture_path, class: "mini-menu-item") %>
+              </li>
+              <li>
                 <%= link_to(content_tag(:i, '', class: 'fas fa-sign-out-alt') + " Log out", session_path(current_user.id), method: :delete, class: "mini-menu-item") %>
               </li>
             </ul>
@@ -58,18 +65,36 @@
         </div>
       </header>
     <% end %>
-    <div class="rows">
+    <div class="main-container">
       <% flash.each do |key, value| %>
         <% alert = key == "danger" ? "danger" : "success" %>
         <%= content_tag :div, value, class: "alert alert-#{alert} top-alert" %>
       <% end %>
-      <aside></aside>
-      <main>
-        <div class="container">
-          <%= yield %>
-        </div>
-      </main>
-      <aside></aside>
+      <div class="row">
+        <aside class="left-aside col-lg-3">
+          <ul class="left-aside-list">
+            <li class="left-aside-item">
+              <a href=<%= user_path(current_user.id) %> class="mini-menu-item">
+                <%= image_tag "dummy_user.jpg", alt: "userimg", class: "mini-user-image" %>
+                <span class="mini-user-name">
+                  <%= get_user_name(current_user) %>
+                </span>
+              </a>
+            </li>
+            <li class="left-aside-item">
+              <%= link_to(content_tag(:i, "", class: "fas fa-user-friends") + " Friends", users_path, class: "mini-menu-item") %>
+            </li>
+          </ul>
+        </aside>
+        <main class="col-lg-6 col-md-7">
+          <div class="container">
+            <%= yield %>
+          </div>
+        </main>
+        <aside class="right-aside col-lg-3 col-md-4">
+          <div class="right-aside-item">広告募集中</div>
+        </aside>
+      </div>
     </div>
   </body>
 </html>
