@@ -23,7 +23,7 @@
       <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
       <%= form.label :image, class: "sr-only" %>
       <%= form.file_field :image, class: "form-control form-picture-input" %>
-      <%= form.hidden_field :image_cache %>
+      <%= form.hidden_field :image_cache, class: "form-picture-input" %>
     </div>
     <%= form.submit "Post", class: "btn btn-lg btn-primary btn-block", id: "form-picture-btn" %>
   <% end %>
