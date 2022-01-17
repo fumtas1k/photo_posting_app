@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     flash[:danger] = "退会しました!"
-    redirect_to users_path
+    redirect_to new_session_path
   end
 
   private
