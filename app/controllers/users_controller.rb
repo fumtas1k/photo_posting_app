@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @pictures = Picture.where(user_id: @user.id).order(created_at: :desc)
   end
 
   def destroy
