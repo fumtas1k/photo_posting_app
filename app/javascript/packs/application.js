@@ -13,11 +13,15 @@ $(document).on('turbolinks:load', function() {
 
   function set_btn_disable(){
     let flag = false;
-    $(".form-picture-input").each(function(e){
-      if ($(".form-picture-input").eq(e).val() != "") {
+    if ($("#form-picture-existent").length){
+      flag = true;
+    } else {
+      $(".form-picture-input").each(function(e){
+        if ($(".form-picture-input").eq(e).val() != "") {
         flag = true;
-      }
-    });
+        }
+      });
+    }
     if (flag) {
       $("#form-picture-btn").prop("disabled", false);
     } else {
